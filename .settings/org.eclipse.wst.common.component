@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ARUS_ADN_SEBAS">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/JavaSource"/>
+        <property name="context-root" value="ARUS_ADN_SEBAS"/>
+        <property name="java-output-path" value="/ARUS_ADN_SEBAS/WebContent/WEB-INF/classes"/>
+    </wb-module>
+</project-modules>

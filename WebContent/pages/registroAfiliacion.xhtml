@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<!-- 
+		Replace path to template, title, header and body
+		with actual data.
+	 -->
+	<ui:composition template="/templates/common.xhtml">
+			<ui:define name="pageTitle">Formulario</ui:define>
+			<ui:define name="pageHeader">Formulario de Afiliación</ui:define>
+			<ui:define name="body">
+				<form jsfc="h:form" id="Form">
+					<h:outputLabel value="Tipo de documento:" />
+					<h:selectOneMenu id="tipoDocumento" value="#{personaBean.persona.tipoDocumento}">
+				        <f:selectItem itemLabel="Seleccionar" itemValue="" />
+			            <f:selectItem itemLabel="Cédula (CC)" itemValue="CC" />
+			            <f:selectItem itemLabel="Cédula de Extranjería (CE)" itemValue="CE" />
+			            <f:selectItem itemLabel="Registro Civil (RC)" itemValue="RC" />
+			            <f:selectItem itemLabel="Tarjeta de Identidad (TI)" itemValue="TI" />
+					</h:selectOneMenu>
+					<br />	
+					<h:outputLabel value="Número de documento:" />
+					<h:inputText id="numeroDocumento" value="#{personaBean.persona.numeroDocumento}" />
+					<br />					
+					<h:outputLabel value="Primer nombre:" />
+					<h:inputText id="primerNombre" value="#{personaBean.persona.primerNombre}" />
+					<br />	
+					<h:outputLabel value="Segundo nombre:" />
+					<h:inputText id="segundoNombre" value="#{personaBean.persona.segundoNombre}" />
+					<br />	
+					<h:outputLabel value="Primer apellido:" />
+					<h:inputText id="primerApellido" value="#{personaBean.persona.primerApellido}" />
+					<br />	
+					<h:outputLabel value="Segundo apellido:" />
+					<h:inputText id="segundoApellido" value="#{personaBean.persona.segundoApellido}" />
+					<br />					
+					<h:outputLabel for="administradoraSalud">Administradora de Salud:</h:outputLabel>
+			        <h:selectOneMenu id="administradoraSalud" value="#{personaBean.persona.administradoraSalud}">
+			            <f:selectItem itemLabel="Seleccionar" itemValue="" />
+			            <f:selectItem itemLabel="Sanitas EPS" itemValue="EPS001" />
+			            <f:selectItem itemLabel="Sura EPS" itemValue="EPS002" />
+			            <f:selectItem itemLabel="Coomeva" itemValue="EPS003" />
+			            <f:selectItem itemLabel="Medimas" itemValue="EPS004" />			            
+			        </h:selectOneMenu>
+			        <h:message for="administradoraSalud" />
+					<br />
+			        <h:outputLabel for="fechaAfiliacionSalud">Fecha de Afiliación a Salud:</h:outputLabel>
+			        <h:inputText id="fechaAfiliacionSalud" value="#{personaBean.persona.fechaAfiliacionSalud}">
+			            <f:convertDateTime pattern="yyyy-MM-dd" />
+			        </h:inputText>
+			        <h:message for="fechaAfiliacionSalud" />
+					<br />
+			        <h:outputLabel for="administradoraPension">Administradora de Pensión:</h:outputLabel>
+			        <h:selectOneMenu id="administradoraPension" value="#{personaBean.persona.administradoraPension}">
+			            <f:selectItem itemLabel="Seleccionar" itemValue="" />
+			            <f:selectItem itemLabel="Protección" itemValue="AFP001" />
+			            <f:selectItem itemLabel="Porvenir" itemValue="AFP002" />
+			            <f:selectItem itemLabel="Colpensiones" itemValue="AFP003" />
+			        </h:selectOneMenu>
+			        <h:message for="administradoraPension" />
+					<br />
+			        <h:outputLabel for="fechaAfiliacionPension">Fecha de Afiliación a Pensión:</h:outputLabel>
+			        <h:inputText id="fechaAfiliacionPension" value="#{personaBean.persona.fechaAfiliacionPension}">
+			            <f:convertDateTime pattern="yyyy-MM-dd" />
+			        </h:inputText>
+			        <h:message for="fechaAfiliacionPension" />
+			        <h:commandButton type="submit" value="Registrar" action="#{personaBean.registrarPersona}" />
+				</form>
+			</ui:define>
+	</ui:composition>
+
+</html>

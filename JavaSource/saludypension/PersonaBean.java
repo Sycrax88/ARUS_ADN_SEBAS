@@ -1,6 +1,7 @@
 package saludypension;
 
-import javax.annotation.PostConstruct;
+import java.io.Serializable;
+
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -10,10 +11,11 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.validator.ValidatorException;
 
-@ManagedBean
+@ManagedBean(name = "personaBean")
 @SessionScoped 
-public class PersonaBean {
+public class PersonaBean implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private static final String SOLO_SE_PERMITEN_LETRAS = "Solo se permiten letras";
 	private static final String SOLO_SE_PERMITEN_NUMEROS_Y_MAXIMO_10_CARACTERES = "Solo se permiten numeros y maximo 10 caracteres";
 	private static final String SOLO_SE_PERMITEN_NUMEROS_LETRAS_Y_MAXIMO_14_CARACTERES = "Solo se permiten numeros, letras y maximo 14 caracteres";
@@ -28,13 +30,17 @@ public class PersonaBean {
 	
 	private String resultado;
 
-	@PostConstruct
-	public void init() {
-		this.persona = new Persona();
-	}
+//	@PostConstruct
+//	public void init() {
+//		this.persona = new Persona();
+//	}
+	
+	public PersonaBean() {
+        persona = new Persona();
+    }
 	
 	public Persona getPersona() {
-		return persona;
+	    return this.persona;
 	}
 
 	public void setPersona(Persona persona) {
@@ -54,17 +60,16 @@ public class PersonaBean {
 	}
 	
 	public void registrarPersona() {
-		System.out.println(this.persona);
-//		this.resultado = "";
-//		
-//		try {		
-//			personaServicio.registrar( this.persona );
-//			
-//			agregarMensajeInformativo(REGISTRO_EXITOSO);
-//		
-//		} catch (Exception e) {
-//			mostrarMensajeError(e.getMessage());
-//		}
+		this.resultado = "";
+		
+		try {		
+			personaServicio.registrar( this.persona );
+			
+			agregarMensajeInformativo(REGISTRO_EXITOSO);
+		
+		} catch (Exception e) {
+			mostrarMensajeError(e.getMessage());
+		}
 
 	}
 

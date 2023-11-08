@@ -26,16 +26,25 @@
 					<h:inputText id="numeroDocumento" value="#{personaBean.persona.numeroDocumento}" />
 					<br />					
 					<h:outputLabel value="Primer nombre:" />
-					<h:inputText id="primerNombre" value="#{personaBean.persona.primerNombre}" />
+					<h:inputText id="primerNombre" value="#{personaBean.persona.primerNombre}">
+					</h:inputText>
+					<br />
+					<h:message for="primerNombre" style="color: red" />
 					<br />	
 					<h:outputLabel value="Segundo nombre:" />
-					<h:inputText id="segundoNombre" value="#{personaBean.persona.segundoNombre}" />
+					<h:inputText id="segundoNombre" value="#{personaBean.persona.segundoNombre}" 
+					/>
+					<h:message for="segundoNombre" style="color: red"/>
 					<br />	
 					<h:outputLabel value="Primer apellido:" />
-					<h:inputText id="primerApellido" value="#{personaBean.persona.primerApellido}" />
+					<h:inputText id="primerApellido" value="#{personaBean.persona.primerApellido}" 
+					/>
+					<h:message for="primerApellido" style="color: red"/>
 					<br />	
 					<h:outputLabel value="Segundo apellido:" />
-					<h:inputText id="segundoApellido" value="#{personaBean.persona.segundoApellido}" />
+					<h:inputText id="segundoApellido" value="#{personaBean.persona.segundoApellido}" 
+					/>
+					<h:message for="segundoApellido" style="color: red"/>
 					<br />					
 					<h:outputLabel for="administradoraSalud">Administradora de Salud:</h:outputLabel>
 			        <h:selectOneMenu id="administradoraSalud" value="#{personaBean.persona.administradoraSalud}">
